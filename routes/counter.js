@@ -3,8 +3,13 @@
 const express = require('express');
 const router = express.Router();
 
-const counter = require('./counter');
+let count = 0;
 
-router.use('/counter', counter);
+router.route('/')
+  .get((req, res) => {
+    res.json({
+      count: count,
+    });
+  });
 
 module.exports = router;
